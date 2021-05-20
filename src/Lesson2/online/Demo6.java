@@ -1,4 +1,4 @@
-package ru.geekbrains.qa.java2.lesson2;
+package Lesson1.Online;
 
 import java.io.File;
 import java.io.FileInputStream;
