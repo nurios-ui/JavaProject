@@ -1,4 +1,4 @@
-package ru.geekbrains.qa.java2.lesson2;
+package Lesson1.Online;
 
 /* Презентация "Что такое исключения". Иллюстрация проблемы */
 public class Demo1 {

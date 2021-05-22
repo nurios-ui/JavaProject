@@ -1,4 +1,4 @@
-package ru.geekbrains.qa.java2.lesson2;
+package Lesson1.Online;
 
 /* Презентация "Ручной выброс исключений" */
 public class Demo5 {
