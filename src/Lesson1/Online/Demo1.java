@@ -1,32 +1,34 @@
-package ru.geekbrains.qa.java2.lesson2;
+package ru.geekbrains.qa.java2.lesson1;
 
-/* Презентация "Что такое исключения". Иллюстрация проблемы */
+/* Презентация "Классы и объекты". */
 public class Demo1 {
 
-    public static void main(String[] args) {
-        System.out.println(division(6, 2));
-        System.out.println(division(6, 0));
+    public static class Cat {
+        public String name;
+
+        public void eat(CatFood catFood) {
+            System.out.println(name + " ест корм " + catFood.title);
+        }
     }
 
-    private static int division(int a, int b) {
-        return a / b;
+    public static class CatFood {
+        public String title;
     }
+
+    public static void main(String[] args) {
+        CatFood catFood = new CatFood();
+        catFood.title = "Китикет";
+
+        Cat cat = new Cat();
+        cat.name = "Мурзик";
+
+        cat.eat(catFood);
+    }
+
 }
 
-
 /*
-    Рассмотрим пример с методом для деления двух чисел. Какие потенциальные проблемы вы видите?
-    -------------------------------------------------------------------------------------------
-        private static int div(int a, int b) {
-            return a / b;
-        }
-    -------------------------------------------------------------------------------------------
-    При вызове метода будут проблемы при передаче 0 качестве делителя
-
-    -- Демонстрация исключения при запуске
-    -- Разобрать стек вызова
-    -- Показать класс ArithmeticException - обычный Java класс => исключение - объект
-
-    Стандартное поведение - прекращение работы при получении исключения. Для того чтобы программа продолжала работать
-    после непредвиденной ситуации, программисту требуется обработать исключение, но об этом - позже.
+   Java ООП язык, понятия как "класс" и "объект" играют в нем ключевую роль.
+   Любую программу на Java можно представить как набор взаимодействующих между собой объектов.
+   Шаблоном объекта является класс, а объект представляет экземпляр этого класса.
  */

@@ -1,24 +1,20 @@
-package ru.geekbrains.qa.java2.lesson2;
+package ru.geekbrains.qa.java2.lesson1;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-/* Презентация "Проброс исключений" */
+/* Презентация " Методы класса object". */
 public class Demo6 {
 
     public static void main(String[] args) {
 
-    }
+        Demo5.Animal dog = new Demo5.Dog("Шарик");
 
-    private static int division(int a, int b) throws ArithmeticException{
-        return a / b;
+        System.out.println(dog.getClass());
+        System.out.println(dog.toString());
     }
-
-    private static void ioExceptionExample() throws FileNotFoundException {
-        File file = new File("file.txt");
-        InputStream in = new FileInputStream(file);
-    }
-
 }
+
+/*
+    Демонстрация методов toString, getClass.
+    Методы equals / hashcode идут далее
+ */
+
+
