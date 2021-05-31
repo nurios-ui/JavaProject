@@ -1,41 +1,39 @@
-package ru.geekbrains.qa.java2.lesson2;
+package ru.geekbrains.qa.java2.lesson1;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-
-/* Презентация "Перехват исключений". Демонстрация перехвата исключений */
+/* Презентация "Наследование". */
 public class Demo3 {
 
-    public static void main(String[] args) {
-
-        File file = new File("file.txt");
-        try {
-            InputStream in = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public abstract static class Animal {
+        protected String name;
+        public void eat(Demo2.CatFood catFood) { // <- проверить внимательность студентов на моменте с типом еды.
+            System.out.println(name + " ест корм " + catFood.getTitle());
         }
 
+        public String getName() {
+            return name;
+        }
 
-        System.out.println(division(6, 0));
-    }
-
-    private static int division(int a, int b) {
-        // Продемонстрировать работу функции. Спросить у аудитории какой минус они видят в реализации
-        try {
-            return a / b;
-        } catch (ArithmeticException thisIsJustVariableICanCallItHowIWant) {
-            return 0;
+        public void setName(String name) {
+            this.name = name;
         }
     }
 
+    public static class Cat extends Animal {
+        public void meow() {
+            System.out.println(this.name + " делает мяу");
+        }
+    }
+
+    public static class Dog extends Animal {
+        public void bark() {
+            System.out.println(this.name + " делает гав!");
+        }
+    }
 }
 
 /*
-       Существует несколько способ перехвата исключений. Начнем с конструкции try-catch
-
-       1) Перехватить FileNotFound из примера Demo2_2
-       2) Вернуться к примеру из Demo1
-
+        Класс, который наследует свойства другого класса, называется подклассом
+         (производным классом, наследующим классом),
+         а класс, свойства которого наследуются, известен как суперкласс
+         (базовый класс, родительский класс)
  */

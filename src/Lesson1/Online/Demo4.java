@@ -1,37 +1,32 @@
-package ru.geekbrains.qa.java2.lesson2;
+package ru.geekbrains.qa.java2.lesson1;
 
-/* Презентация "Особенности работы с блоками try-catch" */
+/* Презентация "Полиморфизм". */
 public class Demo4 {
 
     public static void main(String[] args) {
+        Demo3.Animal cat = new Demo3.Cat();
+        Demo3.Animal dog = new Demo3.Dog();
 
-    }
+        Demo2.CatFood catFood = new Demo2.CatFood();
+        catFood.setTitle("Китикет");
 
-    /* Если один catch сработал, остальные не задействуются */
-    public static void firstSample() {
-        try {
-            int a = 10;
-            a -= 10;
-            int b = 42 / a;
-            int[] с = {1, 2, 3};
-            с[42] = 99;
-        } catch (ArithmeticException е) {
-            System.out.println("Дeлeниe на ноль: " + е);
-        } catch (ArrayIndexOutOfBoundsException е){
-            System.out.println("Ошибка индексации массива: " + е);
+        Demo3.Animal[] animals = {cat, dog};
+        for (Demo3.Animal animal: animals) {
+            animal.eat(catFood);
         }
-        System.out.println("Пocлe блока операторов try/catch");
-    }
 
-    /* При перехвате исключения определенного типа, мы перехватываем и исключения его подтипов */
-    public static void secondSample() {
-        try {
-            int а = 0;
-            int b = 42 / а;
-        } catch (Exception е) {
-            System.out.println("Exception");
-//        } catch (ArithmeticException е) {  <- недостижимый код
-            System.out.println("Этот код недостижим");
-        }
+        /*
+            Output:
+            null ест корм Китикет
+            null ест корм Китикет
+
+            Плавный переход к теме конструкторов
+         */
     }
 }
+
+/*
+       Возможность общаться с объектами разных типов так будто они одного типа
+       Если есть пробелы в знаниях по поводу интерфейсов - добавить пример c реализацией интерфейса
+       напр. CanDoVoice, CanRunOnTheGround
+ */
